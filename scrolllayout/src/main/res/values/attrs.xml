@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ScrollLayout">
+
+        <attr name="minOffset" format="dimension" />
+
+        <attr name="maxOffset" format="dimension" />
+
+        <attr name="exitOffset" format="dimension" />
+
+        <attr name="mode">
+            <flag name="open" value="0x0" />
+            <flag name="close" value="0x1" />
+            <flag name="exit" value="0x2" />
+        </attr>
+
+        <attr name="allowHorizontalScroll" format="boolean"/>
+
+        <attr name="isSupportExit" format="boolean"/>
+
+    </declare-styleable>
+
+</resources>

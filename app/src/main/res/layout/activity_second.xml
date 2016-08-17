@@ -1,0 +1,60 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/android"
+    tools:context=".MainActivity">
+
+    <com.yinglan.scrolllayout.ScrollLayout
+        android:id="@+id/scroll_down_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        app:allowHorizontalScroll="true"
+        app:exitOffset="0dp"
+        app:isSupportExit="true"
+        app:maxOffset="260dp"
+        app:minOffset="50dp"
+        app:mode="open">
+
+        <com.yinglan.scrolllayout.content.ContentScrollView
+            android:id="@+id/content_scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"></android.support.v4.view.ViewPager>
+
+                <TextView
+                    android:id="@+id/text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/view_pager"
+                    android:padding="16dp" />
+
+            </RelativeLayout>
+
+        </com.yinglan.scrolllayout.content.ContentScrollView>
+
+    </com.yinglan.scrolllayout.ScrollLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"          android:titleTextColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"></android.support.v7.widget.Toolbar>
+
+</FrameLayout>
