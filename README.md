@@ -33,12 +33,12 @@ dependencies {
             android:layout_height="match_parent"
             android:background="#000000"
 
-            app:allowHorizontalScroll="true"
-            app:exitOffset="0dp"
-            app:isSupportExit="true"
-            app:maxOffset="260dp"
-            app:minOffset="50dp"
-            app:mode="open">
+            app:allowHorizontalScroll="true"  //是否支持横向滚动
+            app:exitOffset="0dp"              //最低部退出状态时可看到的高度，0为不可见
+            app:isSupportExit="true"	      //是否支持下滑退出，支持会有下滑到最底部时的回调
+            app:maxOffset="260dp"             //打开状态时内容显示区域的高度
+            app:minOffset="50dp"              //关闭状态时最上方预留高度
+            app:mode="open">                  //默认位置状态，关闭、打开、底部
 
 ```
 
@@ -56,6 +56,12 @@ dependencies {
         mScrollLayout.setOnScrollChangedListener(mOnScrollChangedListener);
     }
 
+```
+## Other
+
+```
+	依赖内包含重写的ContentScrollView与ContentListView
+	可在ScrollLayout里面里面使用ViewPager等功能，配合使用效果更佳
 ```
 
 ## LICENSE
