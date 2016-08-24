@@ -65,16 +65,16 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(new ListviewAdapter(this));
         Button button = (Button) findViewById(R.id.btn_go_second);
 
+        /**设置 setting*/
         mScrollLayout.setMinOffset(0);
         mScrollLayout.setMaxOffset((int) (ScreenUtil.getScreenHeight(this) * 0.5));
         mScrollLayout.setExitOffset(ScreenUtil.dip2px(this, 50));
-        mScrollLayout.setToOpen();
         mScrollLayout.setIsSupportExit(true);
         mScrollLayout.setAllowHorizontalScroll(true);
         mScrollLayout.setOnScrollChangedListener(mOnScrollChangedListener);
-        mScrollLayout.getBackground().setAlpha(0);
         mScrollLayout.setToExit();
 
+        mScrollLayout.getBackground().setAlpha(0);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
