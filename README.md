@@ -64,7 +64,7 @@ dependencies {
 	可在ScrollLayout里面里面使用ViewPager等功能，配合使用效果更佳
 ```
 
-## LICENSE
+## LICENSE 开源协议
 
     Apache License Version 2.0
 
