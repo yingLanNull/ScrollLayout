@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+gradle/
+gradlew
+gradlew.bat
+local.properties
+.gradle/
+ScrollLayout.iml
+app/app.iml
+app/build/
+build/
+scrolllayout/build/
+scrolllayout/scrolllayout.iml
