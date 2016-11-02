@@ -20,6 +20,7 @@ import java.util.Map;
  * @time: 16/3/16
  */
 public class MainPagerAdapter extends PagerAdapter implements View.OnClickListener {
+
     private ArrayList<Address> mAllAddressList;
     private Map<Integer, View> mAllImageMap;
     private Context mContext;

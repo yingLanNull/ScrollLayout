@@ -21,6 +21,7 @@ import java.util.ArrayList;
  * @time: 16/3/16
  */
 public class SecondActivity extends AppCompatActivity {
+
     private ScrollLayout mScrollLayout;
     private ArrayList<Address> mAllAddressList;
     private TextView mGirlDesText;
