@@ -24,6 +24,44 @@ dependencies {
 
 ### Step 2
 
+#### Function and parameter definitions 功能与参数定义
+
+<table>
+  <tdead>
+    <tr>
+      <th align="center">配置参数</th>
+      <th align="center">参数含义</th>
+    </tr>
+  </tdead>
+  <tbody>
+    <tr>
+      <td align="center">allowHorizontalScroll</td>
+      <td align="center">是否支持横向滚动</td>
+    </tr>
+    <tr>
+      <td align="center">exitOffset</td>
+      <td align="center">最低部退出状态时可看到的高度，0为不可见</td>
+    </tr>
+    <tr>
+      <td align="center">isSupportExit</td>
+      <td align="center">是否支持下滑退出，支持会有下滑到最底部时的回调</td>
+    </tr>
+    <tr>
+      <td align="center">maxOffset</td>
+      <td align="center">打开状态时内容显示区域的高度</td>
+    </tr>
+    <tr>
+      <td align="center">minOffset</td>
+      <td align="center">关闭状态时最上方预留高度</td>
+    </tr>
+    <tr>
+      <td align="center">mode</td>
+      <td align="center">位置状态，关闭、打开、底部</td>
+    </tr>
+  </tbody>
+</table>
+
+
 #### In layout
 ```
 	    <com.yinglan.scrolllayout.ScrollLayout
