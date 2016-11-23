@@ -15,6 +15,7 @@ import com.yinglan.scrolllayout.demo.R;
  * @time: 16/3/16
  */
 public class ListviewAdapter extends BaseAdapter {
+
     private Context mContext;
 
     public ListviewAdapter(Context context) {
@@ -39,6 +40,7 @@ public class ListviewAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewholder;
+
         if (null == convertView) {
             convertView = View.inflate(mContext, R.layout.item_listview, null);
             viewholder = new ViewHolder(convertView);
@@ -46,12 +48,13 @@ public class ListviewAdapter extends BaseAdapter {
         } else {
             viewholder = (ViewHolder) convertView.getTag();
         }
+
         viewholder.textView.setText("测试" + position);
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,"点击了" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "点击了" + position, Toast.LENGTH_SHORT).show();
             }
         });
 
