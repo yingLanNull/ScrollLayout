@@ -96,11 +96,9 @@ dependencies {
 
 ```
 ## Other 其它
-
-```
-	依赖内包含重写的ContentScrollView与ContentListView
-	可在ScrollLayout里面里面使用ViewPager等功能，配合使用效果更佳
-```
+依赖内包含重写的ContentScrollView与ContentListView
+可在ScrollLayout里面里面使用ViewPager等功能，配合使用效果更佳。
+感谢[Ted](https://github.com/xiongwei-git)的库给的方向。
 
 ## LICENSE 开源协议
 
