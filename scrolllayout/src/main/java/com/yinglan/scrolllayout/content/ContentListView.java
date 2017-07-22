@@ -24,7 +24,9 @@ import android.content.Context;
 import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.view.ViewTreeObserver;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
@@ -55,6 +57,27 @@ public class ContentListView extends ListView {
 
     {
         super.setOnScrollListener(compositeScrollListener);
+
+        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                ViewGroup.LayoutParams layoutParams = getLayoutParams();
+                ViewParent parent = getParent();
+                while (parent != null) {
+                    if (parent instanceof ScrollLayout) {
+                        int height = ((ScrollLayout) parent).getMeasuredHeight() - ((ScrollLayout) parent).minOffset;
+                        if (layoutParams.height == height) {
+                            return;
+                        } else {
+                            layoutParams.height = height;
+                            break;
+                        }
+                    }
+                    parent = parent.getParent();
+                }
+                setLayoutParams(layoutParams);
+            }
+        });
     }
 
     /**

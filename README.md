@@ -18,7 +18,7 @@
 #### Gradle 配置
 ```
 dependencies {
-    compile 'com.yinglan.scrolllayout:scrolllayout:1.0.0'
+    compile 'com.yinglan.scrolllayout:scrolllayout:1.0.1'
 }
 ```
 

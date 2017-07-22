@@ -103,7 +103,7 @@ public class ScrollLayout extends FrameLayout {
     private boolean isCurrentPointerIntercepted = false;
     private InnerStatus currentInnerStatus = InnerStatus.OPENED;
     private int maxOffset = 0;
-    private int minOffset = 0;
+    public int minOffset = 0;
     private int exitOffset = 0;
     private OnScrollChangedListener onScrollChangedListener;
     private ContentScrollView mScrollView;
