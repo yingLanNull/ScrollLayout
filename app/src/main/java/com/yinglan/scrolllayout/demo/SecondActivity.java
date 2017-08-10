@@ -1,5 +1,6 @@
 package com.yinglan.scrolllayout.demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,8 @@ public class SecondActivity extends AppCompatActivity {
         public void onClickItem(View item, int position) {
             if (mScrollLayout.getCurrentStatus() == ScrollLayout.Status.OPENED) {
                 mScrollLayout.scrollToClose();
+            } else {
+                startActivity(new Intent(SecondActivity.this, ThreeActivity.class));
             }
         }
     };
@@ -39,7 +42,7 @@ public class SecondActivity extends AppCompatActivity {
     private ScrollLayout.OnScrollChangedListener mOnScrollChangedListener = new ScrollLayout.OnScrollChangedListener() {
         @Override
         public void onScrollProgressChanged(float currentProgress) {
-            if(currentProgress >= 0) {
+            if (currentProgress >= 0) {
                 float precent = 255 * currentProgress;
                 if (precent > 255) {
                     precent = 255;

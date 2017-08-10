@@ -24,6 +24,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
@@ -88,6 +92,21 @@ public class ScrollLayout extends FrameLayout {
                     updateListViewScrollState(view);
                 }
             };
+    private final RecyclerView.OnScrollListener associatedRecyclerViewListener =
+            new RecyclerView.OnScrollListener() {
+                @Override
+                public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                    super.onScrollStateChanged(recyclerView, newState);
+                    updateRecyclerViewScrollState(recyclerView);
+                }
+
+                @Override
+                public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                    super.onScrolled(recyclerView, dx, dy);
+                    updateRecyclerViewScrollState(recyclerView);
+                }
+            };
+
     private float lastX;
     private float lastY;
     private float lastDownX;
@@ -572,6 +591,17 @@ public class ScrollLayout extends FrameLayout {
         updateListViewScrollState(listView);
     }
 
+    /**
+     * Set associated list view, then this layout will only be able to drag down when the list
+     * view is scrolled to top.
+     *
+     * @param recyclerView
+     */
+    public void setAssociatedRecyclerView(RecyclerView recyclerView) {
+        recyclerView.addOnScrollListener(associatedRecyclerViewListener);
+        updateRecyclerViewScrollState(recyclerView);
+    }
+
     private void updateListViewScrollState(AbsListView listView) {
         if (listView.getChildCount() == 0) {
             setDraggable(true);
@@ -579,6 +609,29 @@ public class ScrollLayout extends FrameLayout {
             if (listView.getFirstVisiblePosition() == 0) {
                 View firstChild = listView.getChildAt(0);
                 if (firstChild.getTop() == listView.getPaddingTop()) {
+                    setDraggable(true);
+                    return;
+                }
+            }
+            setDraggable(false);
+        }
+    }
+
+    private void updateRecyclerViewScrollState(RecyclerView recyclerView) {
+        if (recyclerView.getChildCount() == 0) {
+            setDraggable(true);
+        } else {
+            RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+            int[] i = new int[1];
+            if (layoutManager instanceof LinearLayoutManager || layoutManager instanceof GridLayoutManager) {
+                i[0] = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
+            } else if (layoutManager instanceof StaggeredGridLayoutManager) {
+                i = null;
+                i = ((StaggeredGridLayoutManager) layoutManager).findFirstVisibleItemPositions(i);
+            }
+            if (i[0] == 0) {
+                View firstChild = recyclerView.getChildAt(0);
+                if (firstChild.getTop() == recyclerView.getPaddingTop()) {
                     setDraggable(true);
                     return;
                 }

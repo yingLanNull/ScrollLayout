@@ -61,6 +61,19 @@ dependencies {
   </tbody>
 </table>
 
+<table>
+  <tbody>
+    <tr>
+      <td align="center">ContentRecyclerView</td>
+    </tr>
+    <tr>
+      <td align="center">ContentListView</td>
+    </tr>
+    <tr>
+      <td align="center">ContentScrollView</td>
+    </tr>
+  </tbody>
+</table>
 
 #### In layout
 ```
@@ -96,19 +109,6 @@ dependencies {
 
 ```
 ## Other 其它
-<table>
-  <tbody>
-    <tr>
-      <td align="center">ContentRecyclerView</td>
-    </tr>
-    <tr>
-      <td align="center">ContentListView</td>
-    </tr>
-    <tr>
-      <td align="center">ContentScrollView</td>
-    </tr>
-  </tbody>
-</table>
 依赖内包含重写的ContentScrollView、ContentListView与ContentRecyclerView
 可在ScrollLayout里面里面使用ViewPager等功能，配合使用效果更佳。
 感谢[Ted](https://github.com/xiongwei-git)的库给的方向。
